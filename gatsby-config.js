@@ -5,7 +5,7 @@ module.exports = {
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://khyun-kim.github.io/`,
     social: {
-      twitter: ,
+      twitter: "",
     },
   },
   plugins: [

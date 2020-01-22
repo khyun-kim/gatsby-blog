@@ -1,11 +1,11 @@
 {
-  "name": "khyun-kim's blog",
+  "name": "gatsby-blog",
   "private": true,
   "description": "A starter for a blog powered by Gatsby and Markdown",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/khyun-kim/gatsby-blog/issues"
   },
   "dependencies": {
     "gatsby": "^2.18.12",
@@ -36,9 +36,10 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "prettier": "^1.19.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/khyun-kim/gatsby-blog#readme",
   "keywords": [
     "gatsby"
   ],
@@ -46,7 +47,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/khyun-kim/gatsby-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -55,6 +56,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy:github": "npm run build && node ./scripts/deploy-github"
   }
 }
