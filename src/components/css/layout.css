@@ -1,0 +1,15 @@
+#layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}
+#layout header {
+
+}
+#layout main {
+    flex:1;
+}
+#layout footer {
+
+}
