@@ -30,9 +30,24 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     throw result.errors
   }
-
+  // Create blog-list pages
+  const posts = result.data.allMarkdownRemark.edges;
+  const postsPerPage = 6;
+  const numPages = Math.ceil(posts.length / postsPerPage);
+  Array.from({ length: numPages }).forEach((_,i)=>{
+    createPage({
+      path: i === 0 ? `/blog` :`/blog/${i+1}`,
+      component: path.resolve("./src/templates/blog-list.js"),
+      context: {
+        limit:postsPerPage,
+        skip: i*postsPerPage,
+        numPages,
+        currentPage:i+1,
+      },
+    })
+  })
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  //const posts = result.data.allMarkdownRemark.edges 위에서 선언함...
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node

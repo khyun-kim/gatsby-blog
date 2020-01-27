@@ -1,40 +1,95 @@
-import React, { Component } from "react"
 import { Link } from "gatsby"
+import PropTypes from "prop-types"
+import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars,faTimes } from "@fortawesome/free-solid-svg-icons"
+
 import "./css/Header.css"
-import Hamburger from "./Hamburger"
+import { render } from "react-dom"
+import { Component } from "react"
 
-export default class Header extends Component {
-  state = {
-    menuisActive: false,
+class Header extends Component {
+  state ={
+    showMenu:false
   }
-
-  handleClick = () => {
-    console.log(this.state.menuisActive)
-    this.setState(state => ({ menuisActive: !state.menuisActive }))
+  constructor(props){
+    super(props);
+    this.setState({showMenu:false})
   }
-
-  render(props) {
+  toggleMenu = () =>{
+    this.setState({showMenu:!this.state.showMenu})
+  }
+  render() {
+    const menuActive = this.state.showMenu ? "is-active":"";
+    const iconActive = this.state.showMenu ? faTimes:faBars;
     return (
-      <div id="Header">
-        <h1>{this.props.title}</h1>
-        <div className="menu" onClick={this.handleClick}>
-          <Hamburger />
+      <header id="header">
+        <div className="titleBar">
+          <h2>{this.props.siteTitle}</h2>
+          <div className="menu-container" onClick={this.toggleMenu}>
+            <FontAwesomeIcon
+              className="menu-icon"
+              icon={iconActive}
+              size="2x"
+            />
+          </div>
+          <nav className="desktop-nav">
+            <ul>
+              <li>
+                <Link className="desktop-nav-item" activeClassName="is-selected" to="/">
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <Link className="desktop-nav-item" activeClassName="is-selected" to="/blog">
+                  Blog
+                </Link>
+              </li>
+
+              <li>
+                <Link className="desktop-nav-item" activeClassName="is-selected" to="/about">
+                  About me
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav className={this.state.menuisActive ? "open" :"close"} >
-          <Link className="menuitem" 
-          activeClassName="active" 
-          to="/" 
-          style={{boxShadow:"none"}}>
-            Home
-          </Link>
-          <Link className="menuitem" 
-          activeClassName="active" 
-          to="/blog"
-          style={{boxShadow:"none"}}>
-            blog
-          </Link>
+        <nav className={`toggle-menu-list ${menuActive}`}>
+          <ul>
+            <li>
+              <Link
+                className="toggle-menu-list-item"
+                activeClassName="is-selected"
+                to="/"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="toggle-menu-list-item"
+                activeClassName="is-selected"
+                to="/post"
+              >
+                Post
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="toggle-menu-list-item"
+                activeClassName="is-selected"
+                to="/about"
+              >
+                About me
+              </Link>
+            </li>
+          </ul>
         </nav>
-      </div>
+      </header>
     )
   }
 }
+
+
+export default Header

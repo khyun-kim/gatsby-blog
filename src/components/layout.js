@@ -9,8 +9,8 @@ class Layout extends React.Component {
 
     return (
       <div id="layout">
-        <header> <Header title={this.props.title} /> </header>
-        <main>{children}</main>
+        <Header siteTitle={this.props.title} />
+        <main style={{marginTop:"100px"}}>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
