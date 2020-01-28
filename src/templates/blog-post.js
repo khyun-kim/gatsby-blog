@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../components/css/markdown.css"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -36,7 +37,9 @@ class BlogPostTemplate extends React.Component {
             </p>
           </header>
           <hr/>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="markdownPost">
+            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          </div>
           <hr
             style={{
             }}
@@ -51,19 +54,29 @@ class BlogPostTemplate extends React.Component {
               justifyContent: `space-between`,
               listStyle: `none`,
               padding: 0,
+              margin:`50px 20px`
             }}
           >
-            <li>
+            <li style={{width:`50%`,overflow:`hidden`,position:`relative`,}}>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
+                <Link style={{
+                  display:`inline-block`,textDecoration:`none`,boxShadow:`none`,
+                  fontWeight:`700`,color:`#fff`,background:`#999`,overflow:`hidden`,
+                  padding:`8px`,whiteSpace:`nowrap`,borderRadius:`50%`,
+                  width:`1.5rem`,height:`1.5rem`,lineHeight:`1.5rem`,textAlign:`center`,
+                }} to={previous.fields.slug} rel="prev">
+                  ← 
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
+                <Link style={{
+                  display:`inline-block`,textDecoration:`none`,boxShadow:`none`,
+                  fontWeight:`700`,color:`#fff`,background:`#999`,overflow:`hidden`,
+                  padding:`8px`,whiteSpace:`nowrap`,borderRadius:`50%`,
+                  width:`1.5rem`,height:`1.5rem`,lineHeight:`1.5rem`,textAlign:`center`,
+                }} to={next.fields.slug} rel="next"> →
                 </Link>
               )}
             </li>

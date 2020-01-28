@@ -1,0 +1,7 @@
+.markdownPost {
+    margin: 0 3%;
+}
+.markdownPost blockquote {
+    border-left: 3px solid #444;
+    padding-left: 1rem;
+}
