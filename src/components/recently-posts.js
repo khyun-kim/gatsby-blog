@@ -1,4 +1,4 @@
-import React, { Children } from "react"
+import React from "react"
 import Card from "./card"
 import { Link } from "gatsby"
 
@@ -8,7 +8,7 @@ export default function RecentlyPosts({ recentlyPosts }) {
     return (
       <Card>
         <h3 style={{ textAlign: "center", margin: "0px" }}>
-          😓등록된 포스트가 없어요.
+          <span role="img" aria-label="Oops">😓</span>등록된 포스트가 없어요.
         </h3>
       </Card>
     )
@@ -29,7 +29,22 @@ export default function RecentlyPosts({ recentlyPosts }) {
           최근 포스트
         </h3>
         {recentlyPosts.map(value => (
-          <p>{value.node.frontmatter.title}</p>
+          <div key={value.node.fields.slug} 
+          style={{
+            display:"flex",
+          }}><Link to={value.node.fields.slug}
+          style={{
+            textDecoration:"none",
+            boxShadow:"none",
+            paddingLeft:"10px",
+            flex:"1",
+            lineHeight:"30px",
+            fontSize:"1rem",
+            // ... 말줄임 ...
+            whiteSpace:`nowrap`,
+            overflow:`hidden`,
+            textOverflow:`ellipsis`
+          }}>{value.node.frontmatter.title}</Link><span role="img" aria-label="calander">📅</span><span style={{fontStyle:"italic",lineHeight:"30px",fontSize:"0.8rem"}}>{value.node.frontmatter.date}</span></div>
         ))}
         <Link
           to="/blog"
@@ -41,7 +56,8 @@ export default function RecentlyPosts({ recentlyPosts }) {
             color:"#fff",
             fontSize:"0.7rem",
             padding:"1px 10px",
-            borderRadius:"50vh"
+            borderRadius:"50vh",
+            textDecoration:"none"
           }}
         >
           더보기

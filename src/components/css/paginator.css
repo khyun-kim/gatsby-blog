@@ -1,0 +1,19 @@
+.pageButtonList {
+    text-align: center;
+}
+.pageButton {
+    display: inline-block;
+    box-shadow: none;
+    text-decoration: none;
+    border: 1px solid #bbb;
+    border-right: none;
+    padding: 10px;
+    margin: 5px 0;
+    color: #111;
+    background-color: #eee;
+}
+.pageButton:first-child{
+}
+.pageButton:last-child{
+    border-right: 1px solid #bbb;
+}

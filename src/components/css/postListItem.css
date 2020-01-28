@@ -1,0 +1,8 @@
+.post-list-item {
+    border-bottom: 1px solid #aaa;
+    padding: 10px 0;
+    height: 200px;
+}
+.post-list-item:last-child {
+    border-bottom: none;
+}

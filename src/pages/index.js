@@ -1,11 +1,11 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RecentlyPosts from "../components/recently-posts"
-import { rhythm } from "../utils/typography"
+import "../components/css/index.css"
 
 class BlogIndex extends React.Component {
   render() {
@@ -15,8 +15,12 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home"/>
-        <Bio />
-        <RecentlyPosts recentlyPosts={recentlyPosts}/>
+        <div id="index-contents">
+            <Bio id="index-aside"/>
+          <div id="index-main-contents">
+            <RecentlyPosts id="index-main-contents" recentlyPosts={recentlyPosts}/>
+          </div>
+        </div>
       </Layout>
     )
   }

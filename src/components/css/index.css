@@ -1,0 +1,17 @@
+
+@media screen and (min-width: 900px) {
+    #index-aside {
+        grid-area: aside;
+        height: 100%;
+    }
+    #index-main-contents {
+        height: 100%;
+        grid-area: main-contents;
+    }
+    #index-contents {
+        display: grid;
+        grid-template-columns: 400px auto;
+        grid-template-rows: 100%;
+        grid-template-areas: "aside main-contents";
+    }
+}

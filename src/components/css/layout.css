@@ -1,15 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Pen+Script|Source+Sans+Pro&display=swap');
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 #layout {
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
 }
-#layout header {
-
-}
 #layout main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     flex:1;
+    position: relative;
 }
 #layout footer {
-
+    text-align: center;
+    padding: 15px 0;
+    background-color: #eee;
+}
+#layout footer .social {
+    padding: 10px;
+}
+#layout .social a {
+    color: black;
+}
+ /* --------------desktop-------------- */
+ @media screen and (min-width: 900px) {
+    #layout main {
+        width:100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 }

@@ -1,6 +1,9 @@
 import React from "react"
 import Header from "./Header"
 import './css/layout.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { Link } from "gatsby"
 
 class Layout extends React.Component {
   render() {
@@ -12,9 +15,16 @@ class Layout extends React.Component {
         <Header siteTitle={this.props.title} />
         <main style={{marginTop:"100px"}}>{children}</main>
         <footer>
+          <span>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </span>
+          <div className="social">
+            <a href="https://github.com/khyun-kim">
+              <FontAwesomeIcon icon={faGithub} size="2x"/>
+              </a>
+          </div>
         </footer>
       </div>
     )

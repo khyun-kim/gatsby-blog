@@ -5,16 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars,faTimes } from "@fortawesome/free-solid-svg-icons"
 
 import "./css/Header.css"
-import { render } from "react-dom"
 import { Component } from "react"
 
 class Header extends Component {
   state ={
     showMenu:false
-  }
-  constructor(props){
-    super(props);
-    this.setState({showMenu:false})
   }
   toggleMenu = () =>{
     this.setState({showMenu:!this.state.showMenu})
@@ -70,9 +65,9 @@ class Header extends Component {
               <Link
                 className="toggle-menu-list-item"
                 activeClassName="is-selected"
-                to="/post"
+                to="/blog"
               >
-                Post
+                Blog
               </Link>
             </li>
             <li>
