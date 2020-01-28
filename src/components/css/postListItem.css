@@ -1,8 +1,42 @@
 .post-list-item {
-    border-bottom: 1px solid #aaa;
-    padding: 10px 0;
-    height: 200px;
+    display:flex;
+    position: relative;
+    flex-direction: column;
+    width: 240px;
+    height: 400px;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    padding: 0;
+    margin: 10px;
 }
-.post-list-item:last-child {
-    border-bottom: none;
+.post-list-item h3 {
+    padding: 5px 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.post-list-item p {
+    height: 100px;
+    line-height: 20px;
+    font-size: 0.8rem;
+    padding: 0 5px;
+    margin: 0;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+.post-list-item .post-list-item-button {
+    text-decoration: none;
+    box-shadow: none;
+    display: inline-block;
+    align-self: center;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: cadetblue;
+    color: #fff;
+    font-weight: 600;
 }

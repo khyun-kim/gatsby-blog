@@ -1,6 +1,7 @@
 ---
 title: Scikit learn 과 함께하는 머신 러닝
 date: "2020-01-28"
+image: ./salty_egg.jpg
 description: "Hello World"
 ---
 

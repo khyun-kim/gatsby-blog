@@ -23,7 +23,7 @@ export default class BlogList extends React.Component {
 
     return (
       <Layout title={siteTitle}>
-        <nav style={{flex:`1`,}}>
+        <nav style={{flex:`1`,display:`flex`,flexWrap:`wrap`,justifyContent:`center`}}>
         {posts.map(({node}) => {
           return <PostListItem key={node.fields.slug} post={node} />;
         })}
@@ -55,6 +55,13 @@ export const blogListQuery = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             description
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
           }
         }
       }

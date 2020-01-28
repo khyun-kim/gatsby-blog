@@ -5,14 +5,15 @@ export default function PostListItem({post}) {
     const title = post.frontmatter.title;
     const date = post.frontmatter.date;
     const description = post.frontmatter.description;
+    const imageSource = post.frontmatter.image.childImageSharp.fluid.src
+
+    console.log(post);
     return (
         <div className="post-list-item">
-            <Link style={{display:`block`,textDecoration:`none`,boxShadow:`none`,color:`#111`,
-            margin:`3%`,}} to={post.fields.slug}>
-                <h1>{title}</h1>
-                <p style={{textAlign:`right`}}><span role="img" aria-label="calander">📅</span>{date}</p>
-                <p>{description}</p>
-            </Link>
+            <img src={imageSource} style={{width:`240px`,height:`180px`}} alt={post.frontmatter.title} />
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <Link to={post.fields.slug} className="post-list-item-button">Read</Link>
         </div>
     );
 }
