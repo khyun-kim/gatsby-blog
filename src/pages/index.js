@@ -28,7 +28,7 @@ class BlogIndex extends React.Component {
 
 export default BlogIndex
 
-export const pageQuery = graphql`
+export const recentlyPostQuery = graphql`
   query {
     site {
       siteMetadata {
@@ -37,17 +37,16 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 4) {
+      limit: 4
+    ) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
-            description
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }
