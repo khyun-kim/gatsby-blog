@@ -1,7 +1,11 @@
 .markdownPost {
-    margin: 0 3%;
+    margin: 100px 3%;
 }
 .markdownPost blockquote {
     border-left: 3px solid #444;
     padding-left: 1rem;
+}
+.myPostContext {
+    max-width: 900px;
+    margin: 0 auto;
 }

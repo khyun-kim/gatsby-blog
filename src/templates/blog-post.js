@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../components/css/markdown.css"
@@ -18,7 +17,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article>
+        <article className="myPostContext">
           <header>
             <h1 style={{textAlign:"center",margin:"80px 0"}}>
               {post.frontmatter.title}
@@ -37,6 +36,8 @@ class BlogPostTemplate extends React.Component {
             </p>
           </header>
           <hr/>
+          
+          <h4 style={{textAlign:"center",fontWeight:"100",fontStyle:"italic",margin:"40px 0",color:"#555"}}>{post.frontmatter.description}</h4>
           <div className="markdownPost">
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
