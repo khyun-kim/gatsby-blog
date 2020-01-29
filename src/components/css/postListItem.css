@@ -9,6 +9,7 @@
     margin: 10px;
 }
 .post-list-item .post-list-item-thumnail{
+    display: none;
     position: relative;
     overflow: hidden;
     width: 160px;
@@ -86,6 +87,7 @@
         margin: 5px;
     }
     .post-list-item .post-list-item-thumnail {
+        display: block;
         width: 240px;
         height: 180px;
     }
