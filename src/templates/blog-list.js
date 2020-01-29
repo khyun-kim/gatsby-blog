@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Paginator from "../components/paginator"
 import PostListItem from "../components/post-list-item"
+import "./blog-list.css"
+
 export default class BlogList extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;
@@ -23,7 +25,7 @@ export default class BlogList extends React.Component {
 
     return (
       <Layout title={siteTitle}>
-        <nav style={{flex:`1`,display:`flex`,flexWrap:`wrap`,justifyContent:`center`}}>
+        <nav id="blog-list">
         {posts.map(({node}) => {
           return <PostListItem key={node.fields.slug} post={node} />;
         })}

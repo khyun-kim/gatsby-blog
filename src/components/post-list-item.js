@@ -10,9 +10,13 @@ export default function PostListItem({post}) {
     console.log(post);
     return (
         <div className="post-list-item">
-            <img src={imageSource} style={{width:`240px`,height:`180px`}} alt={post.frontmatter.title} />
-            <h3>{title}</h3>
-            <p>{description}</p>
+            <div className="post-list-item-thumnail">
+                <img src={imageSource} alt={post.frontmatter.title} />
+            </div>
+            <div className="post-list-item-text">
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
             <Link to={post.fields.slug} className="post-list-item-button">Read</Link>
         </div>
     );

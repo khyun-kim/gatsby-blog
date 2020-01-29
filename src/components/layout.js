@@ -3,7 +3,6 @@ import Header from "./Header"
 import './css/layout.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { Link } from "gatsby"
 
 class Layout extends React.Component {
   render() {
