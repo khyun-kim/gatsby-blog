@@ -26,13 +26,14 @@
      -ms-user-select: none;
  }
  #header h2 {
-     font-family: 'Lobster',cursive;
-     font-style: italic;
-     font-weight: 300;
+     /* font-family: 'Lobster',cursive;
+     font-style: italic; */
+     font-weight: 600;
      margin: 0;
      padding: 0;
      height: 64px;
      line-height: 64px;
+     text-transform: uppercase;
  }
  #header .titleBar {
      display: flex;

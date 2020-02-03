@@ -2,6 +2,7 @@
     margin: 100px 3%;
 }
 .markdownPost blockquote {
+    border: 1px solid #ddd;
     border-left: 3px solid #444;
     padding-left: 1rem;
 }
