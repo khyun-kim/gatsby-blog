@@ -20,7 +20,7 @@ class Header extends Component {
     return (
       <header id="header">
         <div className="titleBar">
-          <h2>{this.props.siteTitle}</h2>
+          <Link to="/" className="title">{this.props.siteTitle}</Link>
           <div className="menu-container" onClick={this.toggleMenu}>
             <FontAwesomeIcon
               className="menu-icon"
@@ -37,13 +37,13 @@ class Header extends Component {
               </li>
 
               <li>
-                <Link className="desktop-nav-item" activeClassName="is-selected" to="/blog">
+                <Link className="desktop-nav-item" activeClassName="is-selected" to="/blog/">
                   Blog
                 </Link>
               </li>
 
               <li>
-                <Link className="desktop-nav-item" activeClassName="is-selected" to="/about">
+                <Link className="desktop-nav-item" activeClassName="is-selected" to="/about/">
                   About me
                 </Link>
               </li>
@@ -65,7 +65,7 @@ class Header extends Component {
               <Link
                 className="toggle-menu-list-item"
                 activeClassName="is-selected"
-                to="/blog"
+                to="/blog/"
               >
                 Blog
               </Link>
@@ -74,7 +74,7 @@ class Header extends Component {
               <Link
                 className="toggle-menu-list-item"
                 activeClassName="is-selected"
-                to="/about"
+                to="/about/"
               >
                 About me
               </Link>

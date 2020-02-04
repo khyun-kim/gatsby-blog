@@ -3,7 +3,6 @@ import Card from "./card"
 import { Link } from "gatsby"
 
 export default function RecentlyPosts({ recentlyPosts }) {
-  console.log(recentlyPosts)
   if (recentlyPosts.length === 0) {
     return (
       <Card>
@@ -40,6 +39,7 @@ export default function RecentlyPosts({ recentlyPosts }) {
             flex:"1",
             lineHeight:"30px",
             fontSize:"1rem",
+            color:"black",
             // ... 말줄임 ...
             whiteSpace:`nowrap`,
             overflow:`hidden`,

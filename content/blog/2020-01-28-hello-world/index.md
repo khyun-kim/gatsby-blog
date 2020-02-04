@@ -29,3 +29,10 @@ console.log(greating);
 
 이 전에 있는 포스트는 과거 사용했던 포스트를 가져온 것입니다.
 
+>이 블로그에서 사용하는 [색조합](https://www.design-seeds.com/category/seasons/winter/)
+><div style="background-color:#F2E3EA;text-align:center;padding:10px;">#F2E3EA</div>
+><div style="background-color:#EACAD5;text-align:center;padding:10px;">#EACAD5</div>
+><div style="background-color:#708098;text-align:center;padding:10px;">#708098</div>
+><div style="background-color:#9AB4D4;text-align:center;padding:10px;">#9AB4D4</div>
+><div style="background-color:#B9CDE3;text-align:center;padding:10px;">#B9CDE3</div>
+><div style="background-color:#DCE3EF;text-align:center;padding:10px;">#DCE3EF</div>

@@ -7,7 +7,6 @@ export default function PostListItem({post}) {
     const description = post.frontmatter.description;
     const imageSource = post.frontmatter.image.childImageSharp.fluid.src
 
-    console.log(post);
     return (
         <div className="post-list-item">
             <div className="post-list-item-thumnail">

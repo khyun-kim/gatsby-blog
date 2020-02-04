@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <article className="myPostContext">
-          <header>
+          <section>
             <h1 style={{textAlign:"center",margin:"80px 0"}}>
               {post.frontmatter.title}
             </h1>
@@ -34,7 +34,7 @@ class BlogPostTemplate extends React.Component {
             >
               ~ {post.frontmatter.date} ~
             </p>
-          </header>
+          </section>
           <hr/>
           
           <h4 style={{textAlign:"center",fontWeight:"100",fontStyle:"italic",margin:"40px 0",color:"#555"}}>{post.frontmatter.description}</h4>
