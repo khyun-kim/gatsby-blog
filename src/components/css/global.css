@@ -1,0 +1,15 @@
+.no-decorate-link {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+.single-line-text {
+    text-align: center;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}

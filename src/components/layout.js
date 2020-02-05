@@ -12,7 +12,9 @@ class Layout extends React.Component {
     return (
       <div id="layout">
         <Header siteTitle={this.props.title} />
-        <main style={{marginTop:"100px"}}>{children}</main>
+
+        <main style={{marginTop:"64px"}}>{children}</main>
+
         <footer>
           <span>
           © {new Date().getFullYear()}, Built with

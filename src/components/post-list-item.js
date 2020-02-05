@@ -1,22 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import "./css/PostListItem.css"
+import Card from './card'
 export default function PostListItem({post}) {
     const title = post.frontmatter.title;
     const date = post.frontmatter.date;
     const description = post.frontmatter.description;
-    const imageSource = post.frontmatter.image.childImageSharp.fluid.src
-
+    const imageSource = post.frontmatter.image.childImageSharp.fluid.src;
+    const link = post.fields.slug;
     return (
-        <div className="post-list-item">
-            <div className="post-list-item-thumnail">
-                <img src={imageSource} alt={post.frontmatter.title} />
-            </div>
-            <div className="post-list-item-text">
-                <h3>{title}</h3>
-                <p>{description}</p>
-            </div>
-            <Link to={post.fields.slug} className="post-list-item-button">Read</Link>
-        </div>
+        <Card width="200px" height="260px" padding="0" >
+            <Link to={link} className="no-decorate-link">
+                <figure className="blog-list-item-thumnail">
+                    <img src={imageSource}></img>
+                </figure>
+                <h3 className="single-line-text" style={{padding:"0 10px"}}>{title}</h3>
+                <h2 className= "hoverbox">READ</h2>
+            </Link>
+        </Card>
     );
 }

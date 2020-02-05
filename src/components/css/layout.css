@@ -11,12 +11,14 @@ h1 {
 }
 #layout {
     display: flex;
+    display: flexbox;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
 }
 #layout main {
     display: flex;
+    display: flexbox;
     flex-direction: column;
     width: 100%;
     flex:1;

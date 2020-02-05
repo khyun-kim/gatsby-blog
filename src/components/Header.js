@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars,faTimes } from "@fortawesome/free-solid-svg-icons"
@@ -14,6 +13,7 @@ class Header extends Component {
   toggleMenu = () =>{
     this.setState({showMenu:!this.state.showMenu})
   }
+  
   render() {
     const menuActive = this.state.showMenu ? "is-active":"";
     const iconActive = this.state.showMenu ? faTimes:faBars;
