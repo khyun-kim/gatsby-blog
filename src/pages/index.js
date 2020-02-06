@@ -9,12 +9,15 @@ import "../components/css/index.css"
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const recentlyPosts = data.allMarkdownRemark.edges
+    const { data } = this.props;
+    const siteTitle = data.site.siteMetadata.title;
+    const siteDescription = data.site.siteMetadata.description;
+    const recentlyPosts = data.allMarkdownRemark.edges;
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home"/>
+        <h1 style={{padding:"10%",margin:"0px",color:"white",backgroundColor:"#DCE3EF"}}>{siteDescription}</h1>
+
         <div id="index-contents">
             <Bio id="index-aside"/>
           <div id="index-main-contents">
@@ -33,6 +36,7 @@ export const recentlyPostQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
     allMarkdownRemark(

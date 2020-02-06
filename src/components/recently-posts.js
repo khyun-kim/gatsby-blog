@@ -1,7 +1,6 @@
 import React from "react"
 import Card from "./card"
 import { Link } from "gatsby"
-
 export default function RecentlyPosts({ recentlyPosts }) {
   if (recentlyPosts.length === 0) {
     return (

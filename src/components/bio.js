@@ -23,13 +23,13 @@ const Bio = () => {
       site {
         siteMetadata {
           author
-          description
+          selfIntroduce
         }
       }
     }
   `)
 
-  const { author , description } = data.site.siteMetadata
+  const { author , selfIntroduce } = data.site.siteMetadata
   return (
     <div
       style={{
@@ -60,8 +60,9 @@ const Bio = () => {
         fontWeight:`700`,
         textTransform:`uppercase`,
       }}>{author}</p>
-      <p style={{textAlign:`center`}}>
-        {description}
+      <p style={{textAlign:`center`,
+        padding:"10px"}}>
+        {selfIntroduce}
       </p>
     </div>
   )

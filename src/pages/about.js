@@ -1,20 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import InfoCard from "../components/infoCard"
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
+    const siteDescription = data.site.siteMetadata.description
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="About me"/>
-        <Bio />
-      
+        <InfoCard />
       </Layout>
     )
   }
@@ -27,6 +27,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

@@ -1,0 +1,42 @@
+.info-card {
+    display: flex;
+    position: relative;
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+}
+.info-card .visiting-card {
+    width: 200px;
+    height: 100%;
+    background-color: #708098;
+}
+.info-card .detail-card {
+    position: relative;
+    background-color: white;
+    flex: 1;
+}
+.info-card .detail-card .default-detail{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+}
+.info-card .detail-card .hover-detail{
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 0 5px 5px 0;
+    border-left: 1px solid #586477;
+    background-color: #708098;
+    transition: width .4s;
+    z-index: 1.5;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.info-card:hover .detail-card .hover-detail {
+    width:100%;
+}
