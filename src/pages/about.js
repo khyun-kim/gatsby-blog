@@ -1,10 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import InfoCard from "../components/infoCard"
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -14,7 +12,6 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="About me"/>
-        <InfoCard />
       </Layout>
     )
   }

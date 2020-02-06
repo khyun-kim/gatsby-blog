@@ -2,37 +2,35 @@ module.exports = {
   siteMetadata: {
     title: `코드 부스러기 보관소`,
     author: `khyun-kim`,
-    description: `초보 개발자의 블로그입니다. 공부한 내용을 기록하고, 정리하기 위해서 작성되었습니다. 혹여 잘못된 정보가 있다면 메일을 코멘트를 달아주세요.`,
-    selfIntroduce:`학교를 졸업한지 얼마 지나지 않은 초보 개발자 입니다. 프로그램 개발을 좋아하고 최근에는 웹 프로그래밍에 관심을 가지고 있습니다.`,
+    description: `초보 개발자의 블로그입니다. 공부한 내용을 기록하고, 정리하기 위해서 작성되었습니다. 혹여 잘못된 정보가 있다면 메일이나 코멘트를 달아주세요.`,
+    selfIntroduce: `학교를 졸업한지 얼마 지나지 않은 초보 개발자 입니다. 프로그램 개발을 좋아하고 최근에는 웹 프로그래밍에 관심을 가지고 있습니다.`,
     siteUrl: `https://khyun-kim.github.io/`,
     social: {
       twitter: "",
     },
-  },
-  aboutMeData: {
-    programLangs: [
-      {
-        category:`front-end`,
-        langs:[
-          {
-            name:`HTML5`,
-            level:70
-          },
-          {
-            name:`CSS3`,
-            level:70
-          },
-          {
-            name:`Javascript`,
-            level:70
-          }
-        ]
-      },
-      {
-        category:`database`,
+    aboutMeData: {
+      programLangs: [{
+          category: `front-end`,
+          langs: [{
+              name: `HTML5`,
+              level: 70
+            },
+            {
+              name: `CSS3`,
+              level: 70
+            },
+            {
+              name: `Javascript`,
+              level: 70
+            }
+          ]
+        },
+        {
+          category: `database`,
 
-      },
-  ]
+        },
+      ]
+    },
   },
   plugins: [{
       resolve: `gatsby-source-filesystem`,
