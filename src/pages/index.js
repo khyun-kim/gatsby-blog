@@ -16,7 +16,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home"/>
-        <h2 style={{padding:"10%",margin:"0px",color:"white",backgroundColor:"#DCE3EF"}}>{siteDescription}</h2>
+        <h2 style={{padding:"10%",margin:"0px",color:"white",backgroundColor:"#708098",textShadow:"0 0 2px rgba(0,0,0,.8)"}}>{siteDescription}</h2>
 
         <div id="index-contents">
             <Bio id="index-aside"/>
