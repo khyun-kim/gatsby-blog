@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
+import '../components/css/about.css'
+import ProgressBar from '../components/progressbar'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,27 +13,63 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title;
     const siteSelfIntroduce = data.site.siteMetadata.selfIntroduce;
     const siteAuthor = data.site.siteMetadata.author;
+    const languages = data.site.siteMetadata.aboutMeData.programLangs;
     
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="About me" />
-        <section>
-          <Image
-            fixed={data.avatar.childImageSharp.fixed}
+        <section className="aboutSection"
+          data-sal="slide-up"
+          data-sal-duration="600"
+          data-sal-easing="ease">
+          <article style={{flex: "1"}}>
+            <div style={{textAlign:"center"}}>
+            <Image
+              fixed={data.avatar.childImageSharp.fixed}
+              style={{
+                Width: "150px",
+                borderRadius: `100%`,
+              }}
+              imgStyle={{
+                borderRadius: `50%`,
+              }}
+            />
+            </div>
+          </article>
 
-            style={{
-              marginBottom: 0,
-              Width: "150px", 
-              borderRadius: `100%`,
-            }}
-
-            imgStyle={{
-              borderRadius: `50%`,
-            }}
-          />
-          <p>{siteAuthor}</p>
-          <p>{siteSelfIntroduce}</p>
+          <article style={{ flex: "1",margin:"50px 50px"}}>
+            <h2 style={{textTransform:"uppercase"}}>{siteAuthor}</h2>
+            <p>{siteSelfIntroduce}</p>
+          </article>
         </section>
+              {languages.map((value)=>{
+                return (
+                  <section className="aboutSection" style={{backgroundColor:"#F2E3EA"}}>
+
+                    <article data-sal="slide-up"
+                    data-sal-duration="600"
+                    data-sal-easing="ease"
+                    style={{flex:1,margin:"50px 50px"}} >
+                      <h2 style={{textAlign:"center"}}>{value.category}</h2>
+                      <p>{value.description}</p>
+                    </article>
+
+                    <article data-sal="slide-up"
+                    data-sal-duration="600"
+                    data-sal-easing="ease"
+                    style={{flex:1,margin:"50px 50px"}}>
+                      {value.langs.map((v)=>{
+                        return(
+                          <div>
+                          <p style={{marginLeft:"10px"}}><strong>{v.name}</strong></p>
+                          <ProgressBar value={v.level}/>
+                          </div>
+                        );
+                      })}
+                    </article>
+                  </section>
+                );
+              })}
       </Layout>
     )
   }
@@ -43,7 +81,7 @@ export const pageQuery = graphql`
   query {
     avatar: file(absolutePath: { regex: "/profile.png/" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
+        fixed(width: 300, height: 300) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -53,6 +91,16 @@ export const pageQuery = graphql`
         title
         author
         selfIntroduce
+        aboutMeData {
+          programLangs {
+            category
+            description
+            langs {
+              name
+              level
+            }
+          }
+        }
       }
     }
     
