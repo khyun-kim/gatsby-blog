@@ -18,10 +18,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="About me" />
-        <section className="aboutSection"
-          data-sal="slide-up"
-          data-sal-duration="600"
-          data-sal-easing="ease">
+        <section className="aboutSection">
           <article style={{flex: "1"}}>
             <div style={{textAlign:"center"}}>
             <Image
