@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'gatsby'
-import './css/Paginator.css'
+import '../css/Paginator.css'
 export default function Paginator({paginatorList}) {
     const pages = paginatorList;
 

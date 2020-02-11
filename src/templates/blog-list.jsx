@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../layout/layout"
 import Paginator from "../components/paginator"
 import PostListItem from "../components/post-list-item"
 import SEO from "../components/seo"
-import "./blog-list.css"
+import "../css/blog-list.css"
 
 export default class BlogList extends React.Component {
   

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Do+Hyeon|Nanum+Gothic&display=swap');
+
+.markdownPost {
+    margin: 100px 3%;
+}
+.markdownPost *{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.markdownPost blockquote {
+    border: 1px solid #DCE3EF;
+    border-left: 3px solid #708098;
+    padding-left: 1rem;
+}
+
+.myPostContext {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.markdownPost table {
+    border-width: 1px;
+    border-collapse: collapse;
+}
+.markdownPost th, td {
+    padding: 10px;
+    border: 1px solid #9AB4D4;
+  }
+  .markdownPost th {
+      border-top: 3px solid #708098;
+      background-color: #DCE3EF;
+  }
+/*
+Name:       Base16 Atelier Sulphurpool Light
+Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulphurpool)
+Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
+Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+*/

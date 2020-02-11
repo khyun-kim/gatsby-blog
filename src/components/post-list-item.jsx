@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import "./css/PostListItem.css"
+import "../css/PostListItem.css"
 import Card from './card'
 export default function PostListItem({post ,mobile}) {
     const title = post.frontmatter.title;

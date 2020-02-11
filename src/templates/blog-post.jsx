@@ -1,9 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../layout/layout"
 import SEO from "../components/seo"
-import "../components/css/markdown.css"
+import "../css/markdown.css"
 
 class BlogPostTemplate extends React.Component {
   render() {

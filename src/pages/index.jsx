@@ -2,10 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../layout/layout"
 import SEO from "../components/seo"
 import RecentlyPosts from "../components/recently-posts"
-import "../components/css/index.css"
+import "../css/index.css"
 
 class BlogIndex extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home"/>
-        <h2 style={{padding:"10%",margin:"0px",color:"white",backgroundColor:"#708098",textShadow:"0 0 2px rgba(0,0,0,.8)"}}>{siteDescription}</h2>
+        <h2 style={{padding:"10%",margin:"0px",color:"white",backgroundColor:"#708098",textShadow:"0 0 2px rgba(0,0,0,.8)",fontFamily:'Nanum Gothic'}}>{siteDescription}</h2>
 
         <div id="index-contents">
             <Bio id="index-aside"/>

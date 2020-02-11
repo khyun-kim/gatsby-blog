@@ -5,16 +5,14 @@ image: ./cover.png
 description: "Python을 이용한 웹 어플리케이션을 시도해보며 작성한 포스트입니다."
 ---
 
-Python에서 back-end 분야에서 주로 사용되는 프레임워크로는 Django가 있으나 크기가 크고 구조가 복잡하기 때문에 초보자가 접근하지 용이하지 않다. 
+Back-end분야에서 사용되는 Python 프레임워크 로는 Django가 있다. 하지만 장고는 크기가 크고 구조가 복잡하기 때문에 처음 Back-end를 접하는 초보자에게 맞지 않다고 한다.
 
-그래서 본 포스트에서는 Flask를 이용하며 웹 서버를 구성할 것이다.
+그래서 본 포스트에서는 Flask를 이용하며 웹 서버를 구성하며 연습을 할 것이다.
 
 > ***REST***
 >
-> HTTP URI를 통해 자원을 명시하고 (동작을 명시하지 않음) HTTP Method를 통해 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미한다.
-
-<br>
-
+> HTTP URI를 통해 자원을 명시하고 (동작을 명시하지 않음) HTTP Method를 통해 해당 자원에 대한 **CRUD Operation**을 적용하는 것을 의미한다.
+## CRUD Operation
 | CRUD | HTTP Method | 의미 |
 |:---|:---|:---:|
 | `Create` | POST | 생성 |

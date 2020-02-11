@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import '../components/css/about.css'
+import '../css/about.css'
 import ProgressBar from '../components/progressbar'
 
-import Layout from "../components/layout"
+import Layout from "../layout/layout"
 import SEO from "../components/seo"
 
 class BlogIndex extends React.Component {

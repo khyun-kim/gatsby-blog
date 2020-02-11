@@ -3,7 +3,7 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars,faTimes } from "@fortawesome/free-solid-svg-icons"
 
-import "./css/Header.css"
+import "../css/Header.css"
 import { Component } from "react"
 
 class Header extends Component {

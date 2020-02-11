@@ -12,8 +12,6 @@
     color: #111;
     background-color: #eee;
 }
-.pageButton:first-child{
-}
 .pageButton:last-child{
     border-right: 1px solid #bbb;
 }
