@@ -25,14 +25,13 @@
 .markdownPost th, td {
     padding: 10px;
     border: 1px solid #9AB4D4;
-  }
-  .markdownPost th {
-      border-top: 3px solid #708098;
-      background-color: #DCE3EF;
-  }
-/*
-Name:       Base16 Atelier Sulphurpool Light
-Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulphurpool)
-Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
-Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-*/
+}
+.markdownPost th {
+    border-top: 3px solid #708098;
+    background-color: #DCE3EF;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+    white-space: break-spaces;
+    word-break: break-all;
+}

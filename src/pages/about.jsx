@@ -8,6 +8,7 @@ import Layout from "../layout/layout"
 import SEO from "../components/seo"
 
 class BlogIndex extends React.Component {
+  
   render() {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
@@ -42,19 +43,11 @@ class BlogIndex extends React.Component {
               {languages.map((value)=>{
                 return (
                   <section className="aboutSection" style={{backgroundColor:"#F2E3EA"}}>
-
-                    <article data-sal="slide-up"
-                    data-sal-duration="600"
-                    data-sal-easing="ease"
-                    style={{flex:1,margin:"50px 50px"}} >
+                    <ScrollAnimationArticle>
                       <h2 style={{textAlign:"center"}}>{value.category}</h2>
                       <p>{value.description}</p>
-                    </article>
-
-                    <article data-sal="slide-up"
-                    data-sal-duration="600"
-                    data-sal-easing="ease"
-                    style={{flex:1,margin:"50px 50px"}}>
+                    </ScrollAnimationArticle>
+                    <ScrollAnimationArticle>
                       {value.langs.map((v)=>{
                         return(
                           <div>
@@ -63,13 +56,24 @@ class BlogIndex extends React.Component {
                           </div>
                         );
                       })}
-                    </article>
+                    </ScrollAnimationArticle>
                   </section>
                 );
               })}
       </Layout>
     )
   }
+}
+
+const ScrollAnimationArticle = ({children}) => {
+  return (
+    <article data-sal="slide-up"
+    data-sal-duration="600"
+    data-sal-easing="ease"
+    style={{flex:1,margin:"50px 50px"}} >
+      {children}
+    </article>
+  )
 }
 
 export default BlogIndex

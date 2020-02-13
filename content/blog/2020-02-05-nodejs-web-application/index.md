@@ -65,6 +65,15 @@ app.use('/api',Router);
 
 ## 2. 웹 클라이언트
 
-클리아이언트는 [React](https://ko.reactjs.org/) 프레임워크 를 사용합니다
+[React](https://ko.reactjs.org/) 프레임워크 를 사용합니다.
+
+React에서 1. 서버 에 접근하기 위해서는 `fetch()` 함수를 사용합니다. method를 지정하지 않은 경우에는 GET이 기본으로 설정되며, method를 지정하여 POST등 다른 HTTP 메소드를 활용할 수 있습니다.
+사용해야하는 통신이 반드시 HTTP 일 필요는 없습니다. 다만 다른 프로토콜을 사용하기 위해서는 react에서 사용가능한 라이브러리를 새로 찾아보아야 할 것입니다.
+```jsx
+import React from 'react'
+export default function App() {
+    return (
+      <div></div>
+    );
+}
 ```
-rrc
