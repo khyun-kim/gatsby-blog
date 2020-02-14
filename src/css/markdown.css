@@ -32,6 +32,6 @@
 }
 code[class*="language-"],
 pre[class*="language-"] {
-    white-space: pre-line;
+    white-space: pre-wrap;
     word-break: break-all;
 }
