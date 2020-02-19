@@ -6,7 +6,6 @@ description: "해당 포스트는 블로그에 처음으로 쓰인 포스트입�
 블로그 포스트 기능이 정상적으로 작동하는지 확인하기 위하여 작성하였습니다."
 ---
 
-
 ```javascript
 const greating = 'hello world';
 console.log(greating);
