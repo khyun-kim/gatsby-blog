@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article className="myPostContext">
+        <article style={{width:'100%',margin:0}}>
           <section>
             <h1 style={{textAlign:"center",margin:"80px 0",fontWeight:"500"}}>
               {post.frontmatter.title}

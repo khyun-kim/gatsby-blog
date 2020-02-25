@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Do+Hyeon|Nanum+Gothic&display=swap');
 
-.markdownPost {
-    margin: 100px 3%;
-}
+
 .markdownPost *{
     font-family: 'Nanum Gothic', sans-serif;
+}
+
+.markdownPost h2,h3 {
+    margin-left: 2rem;
+    margin-right:2rem;
+} 
+.markdownPost p {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+.markdownPost a::before {
+    content: '🔗';
 }
 
 .markdownPost blockquote {
@@ -13,10 +23,19 @@
     padding-left: 1rem;
 }
 
-.myPostContext {
-    max-width: 900px;
-    margin: 0 auto;
+.markdownPost .gatsby-highlight{
+    position: relative;
 }
+.markdownPost .gatsby-highlight::before {
+    content: attr(data-language);
+    background-color: yellow;
+    position: absolute; top: 0; left: 0; text-transform: uppercase;
+    display: block;
+    padding: 1px 3px 1px 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
 
 .markdownPost table {
     border-width: 1px;
@@ -30,8 +49,10 @@
     border-top: 3px solid #708098;
     background-color: #DCE3EF;
 }
-code[class*="language-"],
-pre[class*="language-"] {
-    white-space: pre-wrap;
-    word-break: break-all;
+.markdownPost code[class*="language-"],
+.markdownPost pre[class*="language-"] {
+}
+
+.markdownPost pre[class*="language-"] {
+    border-radius: 0;
 }
