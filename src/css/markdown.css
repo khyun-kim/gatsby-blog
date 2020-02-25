@@ -49,8 +49,10 @@
     border-top: 3px solid #708098;
     background-color: #DCE3EF;
 }
-.markdownPost code[class*="language-"],
-.markdownPost pre[class*="language-"] {
+
+.markdownPost code[class="language-text"] {
+    background-color: #708098;
+    border-radius: 0 0.4rem 0 0.4rem;
 }
 
 .markdownPost pre[class*="language-"] {
