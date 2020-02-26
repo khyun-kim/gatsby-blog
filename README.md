@@ -12,6 +12,7 @@
 - [x] Post pages using Markdown files.
 - [ ] Portfolio pages using Markdown files.
 - [x] About Me pages
+- [x] Apply Disqus comment components.
 
 ## Change LOG
 
