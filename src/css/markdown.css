@@ -50,7 +50,7 @@
     background-color: #DCE3EF;
 }
 
-.markdownPost code[class="language-text"] {
+.markdownPost p code[class="language-text"] {
     background-color: #708098;
     border-radius: 0 0.4rem 0 0.4rem;
 }

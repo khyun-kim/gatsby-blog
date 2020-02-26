@@ -10,16 +10,20 @@
 ## Requirements Feature
 - [x] DropDown Menu for mobile environment.
 - [x] Post pages using Markdown files.
-- [ ] Portfolio pages using Markdown files.
+- [ ] Portfol io pages using Markdown files.
 - [x] About Me pages
 - [x] Apply Disqus comment components.
 
+## Issue
+- [ ] Text Codeblock 내부의 문자에 잘못된 배경색이 부여되는 문제.
+- [ ] 너무 지저분한 jsx 코드 정리 필요.
+
 ## Change LOG
+> ### 2020년 2월 26일
+> - 블로그 포스트에 Disqus 덧글 기능 추가.
+> - Codeblock 디자인 완성.
 
 > ### 2020년 2월 19일
-> - 블로그의 기본 틀은 모두 완성 됨.
-> - 컴포넌트들의 제대로된 구조화가 필요.
-> - 컴포넌트들의 리펙토링 필요.
-> - Reactstrap 적용 검토 필요.
+> - 블로그 기반 완성.
 
 
