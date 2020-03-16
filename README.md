@@ -1,5 +1,5 @@
 # 🚀 나만의 블로그 만들기
-===
+
 이 Repository는 Gatsby를 이용하여 Github Pages 블로그를 제작하는데 사용된 소스 코드입니다.
 
 > [🔗블로그](https://khyun-kim.github.io) 확인해 보기.
@@ -15,7 +15,7 @@
 - [x] Apply Disqus comment components.
 
 ## Issue
-- [ ] Text Codeblock 내부의 문자에 잘못된 배경색이 부여되는 문제.
+- [x] Text Codeblock 내부의 문자에 잘못된 배경색이 부여되는 문제.
 - [ ] 너무 지저분한 jsx 코드 정리 필요.
 
 ## Change LOG

@@ -10,9 +10,7 @@ class Layout extends React.Component {
     return (
       <div id="layout">
         <Header siteTitle={this.props.title} />
-
         <main style={{ marginTop: "64px" }}>{children}</main>
-
         <Footer />
       </div>
     )
