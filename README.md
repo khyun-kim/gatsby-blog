@@ -19,6 +19,10 @@
 - [ ] 너무 지저분한 jsx 코드 정리 필요.
 
 ## Change LOG
+> ### 2020년 3월 17일
+> - Material-UI framework 반영
+> - Home page 수정
+
 > ### 2020년 2월 26일
 > - 블로그 포스트에 Disqus 덧글 기능 추가.
 > - Codeblock 디자인 완성.

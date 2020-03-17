@@ -1,5 +1,9 @@
-import React from "react"
-import Card from "./card"
+import React from "react";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardAction from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button";
+import '../css/RecentlyPosts.css';
 import { Link } from "gatsby"
 export default function RecentlyPosts({ recentlyPosts }) {
   if (recentlyPosts.length === 0) {
@@ -11,57 +15,20 @@ export default function RecentlyPosts({ recentlyPosts }) {
       </Card>
     )
   }
+  console.log(recentlyPosts);
   return (
-    <Card>
-      <div style={{
-          display:"flex",
-          flexDirection:"column"
-      }}>
-        <h3
-          style={{
-            margin: "0",
-            padding: "10px 0",
-            borderBottom: "1px solid #d1d1d",
-          }}
-        >
-          최근 포스트
-        </h3>
-        {recentlyPosts.map(value => (
-          <div key={value.node.fields.slug} 
-          style={{
-            display:"flex",
-          }}><Link to={value.node.fields.slug}
-          style={{
-            textDecoration:"none",
-            boxShadow:"none",
-            paddingLeft:"10px",
-            flex:"1",
-            lineHeight:"30px",
-            fontSize:"1rem",
-            color:"black",
-            // ... 말줄임 ...
-            whiteSpace:`nowrap`,
-            overflow:`hidden`,
-            textOverflow:`ellipsis`
-          }}>{value.node.frontmatter.title}</Link><span role="img" aria-label="calander">📅</span><span style={{fontStyle:"italic",lineHeight:"30px",fontSize:"0.8rem"}}>{value.node.frontmatter.date}</span></div>
-        ))}
-        <Link
-          to="/blog"
-          style={{
-            boxShadow: "none",
-            alignSelf:"flex-end",
-            backgroundColor:"#d1d1d1",
-            fontWeight:"800",
-            color:"#fff",
-            fontSize:"0.7rem",
-            padding:"1px 10px",
-            borderRadius:"50vh",
-            textDecoration:"none"
-          }}
-        >
-          더보기
-        </Link>
-      </div>
-    </Card>
+    <div>
+    {recentlyPosts.map((value)=>{
+      return (
+      <Card className="CardRoot">
+        <CardHeader title={value.node.frontmatter.title} subheader={value.node.frontmatter.date}/>
+        <CardAction>
+          <Button>
+            Read More
+          </Button>
+        </CardAction>
+      </Card>)
+    })}
+    </div>
   )
 }

@@ -2,6 +2,10 @@ import React from "react"
 import Header from "./Header"
 import '../css/layout.css'
 import Footer from './Footer'
+
+import Container from '@material-ui/core/Container'
+
+
 class Layout extends React.Component {
   render() {
     const { children } = this.props;
@@ -9,8 +13,11 @@ class Layout extends React.Component {
 
     return (
       <div id="layout">
-        <Header siteTitle={this.props.title} />
-        <main style={{ marginTop: "64px" }}>{children}</main>
+        {/* <Header siteTitle={this.props.title} /> */}
+        <Header title={this.props.title}/>
+        <Container className="containerComponent">
+          {children}
+        </Container>
         <Footer />
       </div>
     )

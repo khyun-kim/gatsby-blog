@@ -17,18 +17,9 @@ h1 {
     -webkit-background-size:20px 20px;
     background-size:20px 20px;
 }
-#layout main {
-    display: flex;
-    display: flexbox;
-    position: relative;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 95%;
-    flex:1;
-    position: relative;
+#layout .containerComponent {
     background-color: #fff;
-    border-left: 1px solid #F2E3EA ;
-    border-right: 1px solid #F2E3EA ;
+    padding: 0;
 }
 #layout footer {
     text-align: center;

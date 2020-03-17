@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
-
+import Button from '@material-ui/core/Button'
 import Bio from "../components/bio"
 import Layout from "../layout/layout"
 import SEO from "../components/seo"
 import RecentlyPosts from "../components/recently-posts"
 import "../css/index.css"
+import FullyContainer from "../components/fully-container"
 
 class BlogIndex extends React.Component {
   render() {
@@ -13,17 +14,35 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title;
     const siteDescription = data.site.siteMetadata.description;
     const recentlyPosts = data.allMarkdownRemark.edges;
+    const siteDescriptionStyle = {
+      fontWeight: "300",
+      textShadow: "0 0 2px rgba(0,0,0,.8)",
+      fontFamily: 'Nanum Gothic', textAlign: "center",
+      padding: "0 10%",
+      color:"white",
+      marginBottom:"10vh"
+    }
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="Home"/>
-        <h2 style={{padding:"10%",margin:"0px",color:"white",backgroundColor:"#708098",textShadow:"0 0 2px rgba(0,0,0,.8)",fontFamily:'Nanum Gothic'}}>{siteDescription}</h2>
-
-        <div id="index-contents">
-            <Bio id="index-aside"/>
-          <div id="index-main-contents">
-            <RecentlyPosts id="index-main-contents" recentlyPosts={recentlyPosts}/>
-          </div>
-        </div>
+        <SEO title="Home" />
+        <FullyContainer>
+          <picture style={{overflow:'hidden',width:"100%"}}>
+              <img src="../../code-1920.jpg" 
+                   alt="배경이미지"
+                   style={{objectFit:"cover",}}
+              />
+          </picture>
+          <section style={{display:"flex",position:"absolute",top:0,width:"100%",height:"100%",justifyContent:"center",alignItems:"center",flexDirection:"column",backgroundColor:"rgba(0,0,0,0.4)",
+        }}>
+            <h2 style={{color:"white"}}>{siteTitle}</h2>
+            <h3 style={siteDescriptionStyle}>{siteDescription}</h3>
+            <Button variant="contained" color="primary" href="/about">About Me</Button>
+          </section>
+        </FullyContainer>
+        <FullyContainer>
+            <Bio id="index-aside" />
+        </FullyContainer>
+        <RecentlyPosts id="index-main-contents" recentlyPosts={recentlyPosts} />
       </Layout>
     )
   }
