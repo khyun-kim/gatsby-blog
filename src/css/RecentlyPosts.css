@@ -1,3 +1,6 @@
 .CardRoot {
-    max-width: 325px;
+    height:400px
+}
+.CardMediaImage {
+    height: 200px;
 }

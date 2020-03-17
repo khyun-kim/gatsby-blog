@@ -19,8 +19,7 @@ export default class BlogList extends React.Component {
     let flag = window.innerWidth < 900;
     if(this.state.mobileMode !== flag)
       this.setState({mobileMode:flag})
-
-}
+    }
 
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;

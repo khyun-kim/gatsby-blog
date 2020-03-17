@@ -2,142 +2,15 @@
  * 이 css 파일은 기본적으로 모바일 디바이스를 타겟으로 작성되었습니다.
  * PC환경의 구성은 미디어 쿼리를 이용하여 추가적으로 구현되어 있습니다.
  */
-
-#header {
-    /*-----드래그 막기-----*/
-    -webkit-user-drag: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: -moz-none;
-    -ms-touch-select: none;
-    -ms-user-select: none;
-}
-
-#header .title {
-    font-weight: 600;
-    margin: 0;
+.MenuButtonDiv {
+    flex:0 0 auto;
     padding: 0;
-    height: 64px;
-    line-height: 64px;
-    font-size: 24px;
-    text-decoration: none;
-    color: black;
-    text-transform: uppercase;
-}
-
-#header .titleBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-}
-
-/*desktop-menu*/
-#header .titleBar .desktop-nav {
-    display: none;
-}
-
-#header .titleBar .desktop-nav ul {
-    display: flex;
-    list-style: none;
     margin: 0;
-    padding: 0;
-}
-
-#header .titleBar .desktop-nav ul li {
-    line-height: 64px;
-    margin: 0;
-}
-
-#header .titleBar .desktop-nav .desktop-nav-item {
-    display: block;
-    box-shadow: none;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 64px;
-    color: #582b3E;
-    font-weight: 400;
-    font-family: 'Bebas neue', cursive;
-}
-#header .titleBar .desktop-nav .desktop-nav-item:hover {
-    color: #708098;
-}
-
-#header .titleBar .desktop-nav .is-selected {
-    background-color: #EACAD5;
-    color: #708098;
-}
-
-/*toggle-menu*/
-
-#header .toggle-menu-list {
-    height: 0;
-    overflow: hidden;
-    background-color: #F2E3EA;
-    transition: height .2s;
-    width: 100%;
-}
-
-#header .toggle-menu-list ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#header .toggle-menu-list ul li {
-    height: 48px;
-    line-height: 48px;
-    margin: 0;
-}
-
-#header .toggle-menu-list ul li .toggle-menu-list-item {
-    display: block;
-    box-shadow: none;
-    text-decoration: none;
-    padding-left: 1.45rem;
-    color: #582b3E;
-    font-family: 'Bebas neue', cursive;
-}
-
-#header .toggle-menu-list ul li .is-selected {
-    background-color: #EACAD5;
-    color: #708098;
-}
-
-#header .menu-container {
-    width: 32px;
-    position: relative;
-}
-
-#header .menu-container .menu-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#header .is-active {
-    height: 144px;
-    transition: height .2s;
 }
 
 /* --------------desktop-------------- */
-@media screen and (min-width: 900px) {
-    #header .titleBar .menu-container {
+@media screen and (min-width: 1200px) {
+    .MobileOnly {
         display: none;
-    }
-
-    #header .toggle-menu-list {
-        display: none;
-    }
-
-    #header .titleBar {
-        width: 100%;
-        justify-content: space-around;
-    }
-
-    #header .titleBar .desktop-nav {
-        display: block;
     }
 }

@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
+
 import Button from '@material-ui/core/Button'
+
 import Bio from "../components/bio"
 import Layout from "../layout/layout"
 import SEO from "../components/seo"
@@ -70,6 +72,14 @@ export const recentlyPostQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            description
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
           }
         }
       }
