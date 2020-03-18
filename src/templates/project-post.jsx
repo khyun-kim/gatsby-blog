@@ -6,7 +6,7 @@ import Layout from "../layout/layout"
 import SEO from "../components/seo"
 import "../css/markdown.css"
 
-class BlogPostTemplate extends React.Component {
+class ProjectPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -97,10 +97,10 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default ProjectPostTemplate
 
 export const pageQuery = graphql`
-  query blogPostBySlug($slug: String!) {
+  query projectPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title

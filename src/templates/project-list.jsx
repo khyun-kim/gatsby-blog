@@ -15,7 +15,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
-export default class BlogList extends React.Component {
+export default class ProjectList extends React.Component {
   
   state = {
     mobileMode : false
@@ -31,7 +31,7 @@ export default class BlogList extends React.Component {
     }
 
   render() {
-    const posts = this.props.data.allMarkdownRemark.edges;
+    const projects = this.props.data.allMarkdownRemark.edges;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { currentPage, numPages } = this.props.pageContext;
 
@@ -47,12 +47,13 @@ export default class BlogList extends React.Component {
 
     return (
       <Layout title={siteTitle}>
-        <SEO title ="Posts"/>
+        <SEO title ="Project"/>
         <h1 style={{margin:"32px",marginTop:"128px",fontSize:"36px",textTransform:"uppercase"}}>Posts</h1>
         
       <div style={{padding:"20px"}}>
       <Grid container spacing={2}>
-        {posts.map((value) => {
+        {projects.map((value) => {
+          console.log(value.node.fields.slug);
           return (
             <Grid item xs={12} sm={3}>
               <Card className="CardRoot">
@@ -81,8 +82,8 @@ export default class BlogList extends React.Component {
   }
 }
 
-export const blogListQuery = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
+export const projectListQuery = graphql`
+  query projectListQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
@@ -92,7 +93,7 @@ export const blogListQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC },
       limit: $limit,
       skip: $skip,
-      filter: {fileAbsolutePath: {regex: "/(post)/.*\\\\md$/"}}
+      filter: {fileAbsolutePath: {regex: "/(project)/.*\\\\md$/"}}
     ) {
       edges {
         node {

@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Button from '@material-ui/core/Button'
 
@@ -21,30 +21,31 @@ class BlogIndex extends React.Component {
       textShadow: "0 0 2px rgba(0,0,0,.8)",
       fontFamily: 'Nanum Gothic', textAlign: "center",
       padding: "0 10%",
-      color:"white",
-      marginBottom:"10vh"
+      color: "white",
+      marginBottom: "10vh"
     }
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home" />
         <FullyContainer>
-          <picture style={{overflow:'hidden',width:"100%"}}>
-              <img src="../../code-1920.jpg" 
-                   alt="배경이미지"
-                   style={{objectFit:"cover",}}
-              />
+          <picture style={{ overflow: 'hidden', width: "100%" }}>
+            <img src="../../code-1920.jpg"
+              alt="배경이미지"
+              style={{ objectFit: "cover", }}
+            />
           </picture>
-          <section style={{display:"flex",position:"absolute",top:0,width:"100%",height:"100%",justifyContent:"center",alignItems:"center",flexDirection:"column",backgroundColor:"rgba(0,0,0,0.4)",
-        }}>
-            <h2 style={{color:"white"}}>{siteTitle}</h2>
+          <section style={{
+            display: "flex", position: "absolute", top: 0, width: "100%", height: "100%", justifyContent: "center", alignItems: "center", flexDirection: "column", backgroundColor: "rgba(0,0,0,0.4)",
+          }}>
+            <h2 style={{ color: "white" }}>{siteTitle}</h2>
             <h3 style={siteDescriptionStyle}>{siteDescription}</h3>
-            <Button variant="contained" color="primary" href="/about">About Me</Button>
+            <Link to="/about"><Button variant="contained" color="primary">About Me</Button></Link>
           </section>
         </FullyContainer>
+          <RecentlyPosts recentlyPosts={recentlyPosts} />
         <FullyContainer>
-            <Bio id="index-aside" />
+          <Bio id="index-aside" />
         </FullyContainer>
-        <RecentlyPosts id="index-main-contents" recentlyPosts={recentlyPosts} />
       </Layout>
     )
   }

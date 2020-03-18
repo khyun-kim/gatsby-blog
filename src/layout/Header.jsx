@@ -93,11 +93,13 @@ function Header(props) {
       onClose={handleClose}>
       <Link style={linkStyle} to="/"><MenuItem>Home</MenuItem></Link>
       <Link style={linkStyle} to="/blog"><MenuItem>Blog</MenuItem></Link>
+      <Link style={linkStyle} to="/project"><MenuItem>Project</MenuItem></Link>
       <Link style={linkStyle} to="/about"><MenuItem>About Me</MenuItem></Link>
     </Menu></> 
     const desktopMenu = <>
     <Link style={linkStyle} to="/"><Button >Home</Button></Link>
     <Link style={linkStyle} to="/blog"><Button>Blog</Button></Link>
+    <Link style={linkStyle} to="/project"><Button>Project</Button></Link>
     <Link style={linkStyle} to="/about"><Button>About Me</Button></Link>
     </>;
 

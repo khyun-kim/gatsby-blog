@@ -28,7 +28,6 @@ export default function RecentlyPosts({ recentlyPosts }) {
       <h1>최근 포스트</h1>
       <Grid container spacing={2}>
         {recentlyPosts.map((value) => {
-          console.log(value)
           return (
             <Grid item xs={12} sm={3}>
               <Card className="CardRoot">
