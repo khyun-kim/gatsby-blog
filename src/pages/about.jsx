@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import '../css/about.css'
-import ProgressBar from '../components/progressbar'
+import ProgressBar from '../components/Progressbar'
 
 import Layout from "../layout/layout"
 import SEO from "../components/seo"

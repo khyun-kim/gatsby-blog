@@ -9,40 +9,45 @@ module.exports = {
       twitter: "",
     },
     aboutMeData: {
-      programLangs: [{
+      programLangs: [
+        {
           category: `Web Programming`,
           description: `HTML을 활용하여 원하는 구성을 만들 수 있으며 header, footer, section, article 태그의 쓰임을 알고 있습니다. CSS3 각 태그를 원하는 위치에 배치할 수 있고, 원하는 모양으로 만들 수 있습니다. 또한 Express 라이브러리를 이용하여 간단한 웹 서버 및 데이터베이스 서버를 구축할 수 있습니다.`,
-          langs: [{
+          langs: [
+            {
               name: `HTML5`,
-              level: 60
+              level: 60,
             },
             {
               name: `CSS3`,
-              level: 40
+              level: 40,
             },
             {
               name: `Javascript`,
-              level: 40
-            }
-          ]
+              level: 40,
+            },
+          ],
         },
         {
           category: `DataBase`,
           description: `관계형 데이터베이스에 대해 이해하고 있으며, SQL을 이용하여 원하는 데이터의 값을 조회, 삽입, 삭제할 수 있습니다. NoSQL에 대해 알고 있으며 그 중 문서 지향 데이터베이스인 MongoDB에 대해 이해하고 있습니다.`,
-          langs: [{
+          langs: [
+            {
               name: `MYSQL`,
-              level: 40
+              level: 40,
             },
             {
               name: `MongoDB`,
-              level: 30
-            }
-          ]
+              level: 30,
+            },
+          ],
         },
-      ]
+      ],
     },
   },
-  plugins: [{
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/post`,
@@ -66,11 +71,11 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [{
+        plugins: [
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: `590px`,
-
             },
           },
           {
@@ -87,25 +92,27 @@ module.exports = {
               aliases: {},
               showLineNumbers: true,
               noInlineHighlight: false,
-              languageExtensions: [{
-                language: "superscript",
-                extend: "javascript",
-                definition: {
-                  superscript_types: /(SuperType)/,
-                },
-                insertBefore: {
-                  function: {
-                    superscript_keywords: /(superif|superelse)/,
+              languageExtensions: [
+                {
+                  language: "superscript",
+                  extend: "javascript",
+                  definition: {
+                    superscript_types: /(SuperType)/,
+                  },
+                  insertBefore: {
+                    function: {
+                      superscript_keywords: /(superif|superelse)/,
+                    },
                   },
                 },
-              }, ],
+              ],
               prompt: {
                 user: "root",
                 host: "localhost",
                 global: false,
               },
               escapeEntities: {},
-            }
+            },
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
@@ -140,13 +147,13 @@ module.exports = {
         once: true,
         disable: false,
 
-        selector: '[data-sal]', // Selector of the elements to be animated
-        animateClassName: 'sal-animate', // Class name which triggers animation
-        disabledClassName: 'sal-disabled', // Class name which defines the disabled state
-        rootMargin: '0% 50%', // Corresponds to root's bounding box margin
-        enterEventName: 'sal:in', // Enter event name
-        exitEventName: 'sal:out', // Exit event name
-      }
+        selector: "[data-sal]", // Selector of the elements to be animated
+        animateClassName: "sal-animate", // Class name which triggers animation
+        disabledClassName: "sal-disabled", // Class name which defines the disabled state
+        rootMargin: "0% 50%", // Corresponds to root's bounding box margin
+        enterEventName: "sal:in", // Enter event name
+        exitEventName: "sal:out", // Exit event name
+      },
     },
     // `gatsby-plugin-react-helmet`,
     // {

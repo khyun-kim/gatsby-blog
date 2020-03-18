@@ -1,19 +1,16 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import styled from "styled-components";
+
 import Layout from "../layout/layout"
 import Paginator from "../components/paginator"
-import PostListItem from "../components/post-list-item"
+import PostItem from "../components/PostItem"
 import SEO from "../components/seo"
 import "../css/blog-list.css"
 
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardAction from "@material-ui/core/CardActions";
-import CardMedia from "@material-ui/core/CardMedia"
-import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+
+const CardContainer = styled.div`padding:20px`;
 
 export default class ProjectList extends React.Component {
   
@@ -50,32 +47,22 @@ export default class ProjectList extends React.Component {
         <SEO title ="Project"/>
         <h1 style={{margin:"32px",marginTop:"128px",fontSize:"36px",textTransform:"uppercase"}}>Posts</h1>
         
-      <div style={{padding:"20px"}}>
+      <CardContainer>
       <Grid container spacing={2}>
         {projects.map((value) => {
           console.log(value.node.fields.slug);
           return (
-            <Grid item xs={12} sm={3}>
-              <Card className="CardRoot">
-                <CardMedia className="CardMediaImage" image={value.node.frontmatter.image.childImageSharp.fluid.src}/>
-                <CardContent>
-                  <Typography noWrap="true" variant="h5" component="h2">
-                    {value.node.frontmatter.title}
-                  </Typography>
-                  <CardHeader subheader={value.node.frontmatter.date} />
-                </CardContent>
-                <CardAction>
-                  <Link to={value.node.fields.slug}>
-                    <Button>
-                      Read More
-                    </Button>
-                  </Link>
-                </CardAction>
-              </Card>
-            </Grid>)
+          <Grid container spacing={2}>
+            {projects.map((value,index) => {
+              return (
+              <Grid key={index} item xs={12} sm={3}>
+                <PostItem post={value}/>
+              </Grid>)
+            })}
+          </Grid>)
         })}
       </Grid>
-      </div>
+      </CardContainer>
         <Paginator paginatorList={PaginatorList}/>
       </Layout>
     )

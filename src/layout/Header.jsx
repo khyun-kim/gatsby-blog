@@ -1,6 +1,7 @@
 import React from "react"
 import {Link} from "gatsby"
-import "../css/Header.css"
+
+import styled from "styled-components";
 
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -42,7 +43,6 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
-const linkStyle = {margin:"auto",textDecoration:"none",boxShadow:"",color:"black"}
 
 function Header(props) {
   const classes = useStyles();
@@ -91,23 +91,23 @@ function Header(props) {
       }}
       open={open}
       onClose={handleClose}>
-      <Link style={linkStyle} to="/"><MenuItem>Home</MenuItem></Link>
-      <Link style={linkStyle} to="/blog"><MenuItem>Blog</MenuItem></Link>
-      <Link style={linkStyle} to="/project"><MenuItem>Project</MenuItem></Link>
-      <Link style={linkStyle} to="/about"><MenuItem>About Me</MenuItem></Link>
+      <PlainLink to="/"><MenuItem>Home</MenuItem></PlainLink>
+      <PlainLink to="/blog"><MenuItem>Blog</MenuItem></PlainLink>
+      <PlainLink to="/project"><MenuItem>Project</MenuItem></PlainLink>
+      <PlainLink to="/about"><MenuItem>About Me</MenuItem></PlainLink>
     </Menu></> 
     const desktopMenu = <>
-    <Link style={linkStyle} to="/"><Button >Home</Button></Link>
-    <Link style={linkStyle} to="/blog"><Button>Blog</Button></Link>
-    <Link style={linkStyle} to="/project"><Button>Project</Button></Link>
-    <Link style={linkStyle} to="/about"><Button>About Me</Button></Link>
+    <PlainLink to="/"><Button >Home</Button></PlainLink>
+    <PlainLink to="/blog"><Button>Blog</Button></PlainLink>
+    <PlainLink to="/project"><Button>Project</Button></PlainLink>
+    <PlainLink to="/about"><Button>About Me</Button></PlainLink>
     </>;
 
   return (
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll>
-        <AppBar color="#F2E3EA">
+        <AppBar color="primary">
           <Toolbar className={classes.toolbar}>
             <Typography className={classes.title} variant="h6">
               {props.title}
@@ -120,5 +120,11 @@ function Header(props) {
   );
 }
 
+const PlainLink = styled(Link)`
+  margin:auto;
+  text-decoration:none;
+  box-shadow:0;
+  color:black;
+`
 
 export default Header

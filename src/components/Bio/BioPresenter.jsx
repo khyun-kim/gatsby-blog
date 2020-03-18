@@ -6,11 +6,11 @@
  */
 
 import React from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-
-const Bio = () => {
+const BioPresenter = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile.png/" }) {
@@ -29,43 +29,44 @@ const Bio = () => {
     }
   `)
 
-  const { author , selfIntroduce } = data.site.siteMetadata
+  const { author, selfIntroduce } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        flexDirection:`column`,
-        justifyContent:`center`,
-        alignItems:`center`,
-        maxWidth:`700px`,
-        margin:`0 auto`
-      }}
-    >
+    <BioContainer>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
-
         style={{
           marginBottom: 0,
           Width: "150px",
           borderRadius: `100%`,
         }}
-
         imgStyle={{
           borderRadius: `50%`,
         }}
       />
       <p
-      style={{
-        fontWeight:`700`,
-        textTransform:`uppercase`,
-      }}>{author}</p>
-      <p style={{textAlign:`center`,
-        padding:"10px"}}>
-        {selfIntroduce}
+        style={{
+          fontWeight: `700`,
+          textTransform: `uppercase`,
+        }}
+      >
+        {author}
       </p>
-    </div>
+      <Description>{selfIntroduce}</Description>
+    </BioContainer>
   )
 }
+const BioContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+`
+const Description = styled.p`
+  text-align: center;
+  padding: 10px;
+`
 
-export default Bio
+export default BioPresenter
