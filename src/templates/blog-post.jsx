@@ -1,7 +1,12 @@
 import React from "react"
+import styled from "styled-components"
+
 import { Link, graphql } from "gatsby"
 import { DiscussionEmbed } from "disqus-react"
+
 import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
+
 import Layout from "../layout/layout"
 import SEO from "../components/seo"
 import "../css/markdown.css"
@@ -24,69 +29,30 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article style={{ width: "100%", margin: 0 }}>
+        <ArticleContainer>
           <section>
-            <h1
-              style={{
-                textAlign: "center",
-                margin: "80px 0",
-                fontWeight: "500",
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                display: `block`,
-                textAlign: "center",
-                fontStyle: "italic",
-                fontSize: "0.8rem",
-                color: "#777",
-                margin: "40px",
-              }}
-            >
-              ~ {post.frontmatter.date} ~
-            </p>
+            <Title variant="h4">{post.frontmatter.title}</Title>
+            <Date>~ {post.frontmatter.date} ~</Date>
           </section>
           <hr />
-
-          <h4
-            style={{
-              textAlign: "center",
-              fontWeight: "100",
-              fontStyle: "italic",
-              margin: "40px 0",
-              color: "#555",
-            }}
-          >
-            {post.frontmatter.description}
-          </h4>
+          <Description>{post.frontmatter.description}</Description>
           <div className="markdownPost">
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
-          <hr style={{}} />
+          <br />
+          <hr />
+          <br />
           <div style={{ margin: "0 1rem" }}>
             <DiscussionEmbed
               shortname={disqusShortname}
               config={disqusConfig}
             />
           </div>
-        </article>
+        </ArticleContainer>
 
         <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-              margin: `50px 20px`,
-            }}
-          >
-            <li
-              style={{ width: `50%`, overflow: `hidden`, position: `relative` }}
-            >
+          <PaginationList>
+            <li>
               {previous ? (
                 <Link to={previous.fields.slug} rel="prev">
                   <Button variant="contained" color="primary">
@@ -112,12 +78,45 @@ class BlogPostTemplate extends React.Component {
                 </Button>
               )}
             </li>
-          </ul>
+          </PaginationList>
         </nav>
       </Layout>
     )
   }
 }
+const PaginationList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 50px 20px;
+`
+const Title = styled(Typography)`
+  text-align: center;
+`
+const ArticleContainer = styled.article`
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  padding-top: 128px;
+`
+
+const Date = styled.p`
+  display: block;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #777;
+  margin: 40px;
+`
+const Description = styled.h4`
+  text-align: center;
+  font-weight: 100;
+  font-style: italic;
+  margin: 40px 0;
+  color: #555;
+`
 
 export default BlogPostTemplate
 
