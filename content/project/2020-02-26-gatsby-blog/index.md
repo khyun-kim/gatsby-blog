@@ -26,6 +26,7 @@ description: "Front-end 프레임워크 중 React에 친숙해지기 위해서 �
 ## Issue
 - [x] Text Codeblock 내부의 문자에 잘못된 배경색이 부여되는 문제.
 - [ ] 너무 지저분한 jsx 코드 정리 필요.
+- [ ] 사이트 헤더가 페이지를 처음 로딩할때 심각하게 깨져서 보이는 문제, Material-UI를 무리하게 적용시킨 것은 아닐까?
 
 ## Change LOG
 > ### 2020년 3월 18일

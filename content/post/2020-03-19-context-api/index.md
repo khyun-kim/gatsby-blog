@@ -1,5 +1,5 @@
 ---
-title: React에서 ContextAPI
+title: React의 ContextAPI
 date: "2020-03-19"
 image: ./cover.png
 description: "이 포스트는 React Context API에 대해서 공부한 내용을 기록한 것 입니다."
