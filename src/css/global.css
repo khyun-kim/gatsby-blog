@@ -1,8 +1,10 @@
+
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Do+Hyeon|Nanum+Gothic&display=swap');
 
-* {
-    font-family: 'Do Hyeon', sans-serif;
+*{
+    font-family: 'Nanum Gothic', sans-serif;
 }
+
 .no-decorate-link {
     text-decoration: none;
     color: black;

@@ -1,152 +1,94 @@
-import React from "react"
+import React, { Component } from "react"
+import styled from "styled-components"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 
-import styled from "styled-components"
-
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import AppBar from "@material-ui/core/AppBar"
-import useScrollTrigger from "@material-ui/core/useScrollTrigger"
-import Slide from "@material-ui/core/Slide"
-import CssBaseline from "@material-ui/core/CssBaseline"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
-import { makeStyles } from "@material-ui/core/styles"
-
-const useStyles = makeStyles(theme => ({
-  toolbar: {
-    alignItems: "flex-start",
-    paddingBottom: theme.spacing(1),
-    paddingTop: theme.spacing(1),
-  },
-  title: {
-    flexGrow: 1,
-    padding: 0,
-    margin: 0,
-    alignSelf: "flex-end",
-    marginLeft: theme.spacing(3),
-  },
-  menuIcon: {
-    alignSelf: "flex-end",
-    padding: 0,
-    margin: 0,
-  },
-}))
-function HideOnScroll(props) {
-  const { children } = props
-  const trigger = useScrollTrigger(undefined)
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  )
-}
-
-function Header(props) {
-  const classes = useStyles()
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [isMobile, setIsMobile] = React.useState(false)
-  const open = Boolean(anchorEl)
-
-  function resize() {
-    const flag = window.innerWidth < 900
-    if (isMobile !== flag) {
-      setIsMobile(flag)
+class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { MenuOpen: false }
+    this.handleToggleMenu = () => {
+      if (this.state.MenuOpen) {
+        this.setState({ ...this.state, MenuOpen: false })
+      } else {
+        this.setState({ ...this.state, MenuOpen: true })
+      }
     }
   }
-  const handleMenu = event => {
-    setAnchorEl(event.currentTarget)
+  render() {
+    return (
+      <HeaderContainer>
+        <Title to="/">
+          Newbie Developer
+          <MobileButton onClick={this.handleToggleMenu}>
+            <FontAwesomeIcon icon={faBars} />
+          </MobileButton>
+        </Title>
+        <MenuContainer show={this.state.MenuOpen}>
+          <MenuBtn to="/blog">POST</MenuBtn>
+          <MenuBtn to="/project">PROJECT</MenuBtn>
+          <MenuBtn to="/about">ABOUT ME</MenuBtn>
+        </MenuContainer>
+      </HeaderContainer>
+    )
   }
-
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-  React.useEffect(() => {
-    window.addEventListener("resize", resize)
-    resize()
-  })
-
-  const mobileMenu = (
-    <>
-      <IconButton
-        className={classes.menuIcon}
-        edge="end"
-        color="inherit"
-        aria-label="menu"
-        onClick={handleMenu}
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
-      >
-        <MenuIcon />
-      </IconButton>
-
-      <Menu
-        id="menu-appbar"
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        keepMounted
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        open={open}
-        onClose={handleClose}
-      >
-        <PlainLink to="/">
-          <MenuItem>Home</MenuItem>
-        </PlainLink>
-        <PlainLink to="/blog">
-          <MenuItem>Blog</MenuItem>
-        </PlainLink>
-        <PlainLink to="/project">
-          <MenuItem>Project</MenuItem>
-        </PlainLink>
-        <PlainLink to="/about">
-          <MenuItem>About Me</MenuItem>
-        </PlainLink>
-      </Menu>
-    </>
-  )
-  const desktopMenu = (
-    <>
-      <DesktopMenu to="/">HOME</DesktopMenu>
-      <DesktopMenu to="/blog">BLOG</DesktopMenu>
-      <DesktopMenu to="/project">PROJECT</DesktopMenu>
-      <DesktopMenu to="/about">ABOUT ME</DesktopMenu>
-    </>
-  )
-
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <HideOnScroll>
-        <AppBar color="primary">
-          <Toolbar className={classes.toolbar}>
-            <Typography className={classes.title} variant="h6">
-              {props.title}
-            </Typography>
-            {isMobile ? mobileMenu : desktopMenu}
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
-    </React.Fragment>
-  )
 }
 
-const PlainLink = styled(Link)`
-  margin: auto;
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: space-around;
+  border-bottom: 2px solid #ccc;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+`
+const ClearLink = styled(Link)`
   text-decoration: none;
   box-shadow: 0;
-  color: black;
+  color: #aaa;
 `
-const DesktopMenu = styled(PlainLink)`
-  padding: 0 10px;
-  color: white;
+const MobileButton = styled.button`
+  width: 48px;
+  height: 48px;
+  border: 0px;
+  background-color: white;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`
+const Title = styled(ClearLink)`
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  color: #ccc;
+  font-weight: 100;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (min-width: 768px) {
+    flex: 1;
+  }
+`
+const MenuBtn = styled(ClearLink)`
+  height: 48px;
+  line-height: 48px;
+  margin: 0 10px;
+  transition: color 0.3s;
+  &:hover {
+    color: black;
+  }
 `
 
+const MenuContainer = styled.div`
+  display: ${props => (props.show ? "block" : "none")};
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+`
 export default Header
