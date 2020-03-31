@@ -8,7 +8,7 @@ class Header extends Component {
   constructor(props) {
     super(props)
     this.state = { MenuOpen: false }
-    this.handleToggleMenu = () => {
+    this.handleToggleMenu = e => {
       if (this.state.MenuOpen) {
         this.setState({ ...this.state, MenuOpen: false })
       } else {
@@ -19,12 +19,12 @@ class Header extends Component {
   render() {
     return (
       <HeaderContainer>
-        <Title to="/">
-          Newbie Developer
+        <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
+          <Title to="/">Newbie Developer</Title>
           <MobileButton onClick={this.handleToggleMenu}>
             <FontAwesomeIcon icon={faBars} />
           </MobileButton>
-        </Title>
+        </div>
         <MenuContainer show={this.state.MenuOpen}>
           <MenuBtn to="/blog">POST</MenuBtn>
           <MenuBtn to="/project">PROJECT</MenuBtn>
@@ -67,8 +67,8 @@ const Title = styled(ClearLink)`
   color: #ccc;
   font-weight: 100;
   margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
+  display: inline-block;
+  flex: 1;
   @media only screen and (min-width: 768px) {
     flex: 1;
   }
