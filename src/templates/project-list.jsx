@@ -60,17 +60,10 @@ export default class ProjectList extends React.Component {
 
         <CardContainer>
           <Grid container spacing={2}>
-            {projects.map(value => {
-              console.log(value.node.fields.slug)
+            {projects.map((value, index) => {
               return (
-                <Grid container spacing={2}>
-                  {projects.map((value, index) => {
-                    return (
-                      <Grid key={index} item xs={12} sm={3}>
-                        <PostItem post={value} />
-                      </Grid>
-                    )
-                  })}
+                <Grid key={index} item xs={12} sm={3}>
+                  <PostItem post={value} />
                 </Grid>
               )
             })}
