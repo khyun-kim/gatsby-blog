@@ -1,46 +1,72 @@
-import React, { Component } from "react"
+import React, { Component, useState, useEffect } from "react"
 import styled from "styled-components"
+import useDocumentScrollThrottled from "./useDocumentScrollThrottled"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 
-class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { MenuOpen: false }
-    this.handleToggleMenu = e => {
-      if (this.state.MenuOpen) {
-        this.setState({ ...this.state, MenuOpen: false })
-      } else {
-        this.setState({ ...this.state, MenuOpen: true })
-      }
+const Header = props => {
+  // *** scroll event *** //
+  const [shouldHideHeader, setShouldHideHeader] = useState(false)
+  const [shouldShadowHeader, setShouldShadowHeader] = useState(false)
+
+  const MINIMUM_SCROLL = 80
+  const TIMEOUT_DELAY = 400
+
+  useDocumentScrollThrottled(callbackData => {
+    const { previousScrollTop, currentScrollTop } = callbackData
+    const isScrolledDown = previousScrollTop < currentScrollTop
+    const isMiniumScrolled = currentScrollTop > MINIMUM_SCROLL
+
+    setShouldShadowHeader(currentScrollTop > 2)
+
+    setTimeout(() => {
+      setShouldHideHeader(isScrolledDown && isMiniumScrolled)
+    }, TIMEOUT_DELAY)
+  })
+  useEffect(() => {
+    console.log(shouldShadowHeader)
+    console.log(shouldHideHeader)
+  }, [shouldHideHeader, shouldShadowHeader])
+
+  // *** mobile button *** //
+  const [menuOpen, setMenuOpen] = useState(false)
+  const handleToggleMenu = e => {
+    if (menuOpen) {
+      setMenuOpen(false)
+    } else {
+      setMenuOpen(true)
     }
   }
-  render() {
-    return (
-      <HeaderContainer>
-        <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
-          <Title to="/">Newbie Developer</Title>
-          <MobileButton onClick={this.handleToggleMenu}>
-            <FontAwesomeIcon icon={faBars} />
-          </MobileButton>
-        </div>
-        <MenuContainer show={this.state.MenuOpen}>
-          <MenuBtn to="/blog">POST</MenuBtn>
-          <MenuBtn to="/project">PROJECT</MenuBtn>
-          <MenuBtn to="/about">ABOUT ME</MenuBtn>
-        </MenuContainer>
-      </HeaderContainer>
-    )
-  }
+
+  return (
+    <HeaderContainer hide={shouldHideHeader} shadow={shouldShadowHeader}>
+      <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
+        <Title to="/">Newbie Developer</Title>
+        <MobileButton onClick={handleToggleMenu}>
+          <FontAwesomeIcon icon={faBars} />
+        </MobileButton>
+      </div>
+      <MenuContainer show={menuOpen}>
+        <MenuBtn to="/blog">POST</MenuBtn>
+        <MenuBtn to="/project">PROJECT</MenuBtn>
+        <MenuBtn to="/about">ABOUT ME</MenuBtn>
+      </MenuContainer>
+    </HeaderContainer>
+  )
 }
 
 const HeaderContainer = styled.div`
   display: flex;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
   flex-direction: column;
-  background-color: white;
   justify-content: space-around;
-  border-bottom: 2px solid #ccc;
+  background-color: white;
+  top: ${props => (props.hide ? "-100%" : "0")};
+  box-shadow: ${props => (props.shadow ? "0 0 10px rgba(0,0,0,.3)" : "0")};
+  transition: top 0.4s;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;

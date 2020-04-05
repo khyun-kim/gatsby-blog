@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import Button from "@material-ui/core/Button"
 
 export default function PaginatorPresenter({ paginatorList }) {
   const pages = paginatorList
@@ -10,13 +9,13 @@ export default function PaginatorPresenter({ paginatorList }) {
     <PageButtonContainer>
       {pages.map(value => {
         return value === 1 ? (
-          <PageButton key={value} className="pageButton" to="/blog">
+          <PageButton key={value} to="/blog">
             {value}
           </PageButton>
         ) : (
-          <Link key={value} className="pageButton" to={`/blog/${value}`}>
-            <Button variant="outlined">a</Button>
-          </Link>
+          <PageButton key={value} to={`/blog/${value}`}>
+            {value}
+          </PageButton>
         )
       })}
     </PageButtonContainer>
