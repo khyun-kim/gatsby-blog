@@ -4,15 +4,11 @@
 .markdownPost *{
     font-family: 'Nanum Gothic', sans-serif;
 }
-
-.markdownPost h2,h3 {
-    margin-left: 2rem;
-    margin-right:2rem;
-} 
-.markdownPost p {
-    margin-left: 3rem;
-    margin-right: 3rem;
+.markdownPost {
+    padding: 0;
+    margin:0;
 }
+
 .markdownPost a::before {
     content: '🔗';
 }

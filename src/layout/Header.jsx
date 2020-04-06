@@ -7,7 +7,7 @@ import { Link } from "gatsby"
 
 const Header = props => {
   // *** scroll event *** //
-  const [shouldHideHeader, setShouldHideHeader] = useState(false)
+  // const [shouldHideHeader, setShouldHideHeader] = useState(false)
   const [shouldShadowHeader, setShouldShadowHeader] = useState(false)
 
   const MINIMUM_SCROLL = 80
@@ -15,19 +15,15 @@ const Header = props => {
 
   useDocumentScrollThrottled(callbackData => {
     const { previousScrollTop, currentScrollTop } = callbackData
-    const isScrolledDown = previousScrollTop < currentScrollTop
-    const isMiniumScrolled = currentScrollTop > MINIMUM_SCROLL
+    // const isScrolledDown = previousScrollTop < currentScrollTop
+    // const isMiniumScrolled = currentScrollTop > MINIMUM_SCROLL
 
     setShouldShadowHeader(currentScrollTop > 2)
 
-    setTimeout(() => {
-      setShouldHideHeader(isScrolledDown && isMiniumScrolled)
-    }, TIMEOUT_DELAY)
+    // setTimeout(() => {
+    //   setShouldHideHeader(isScrolledDown && isMiniumScrolled)
+    // }, TIMEOUT_DELAY)
   })
-  useEffect(() => {
-    console.log(shouldShadowHeader)
-    console.log(shouldHideHeader)
-  }, [shouldHideHeader, shouldShadowHeader])
 
   // *** mobile button *** //
   const [menuOpen, setMenuOpen] = useState(false)
@@ -40,38 +36,44 @@ const Header = props => {
   }
 
   return (
-    <HeaderContainer hide={shouldHideHeader} shadow={shouldShadowHeader}>
-      <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
-        <Title to="/">Newbie Developer</Title>
-        <MobileButton onClick={handleToggleMenu}>
-          <FontAwesomeIcon icon={faBars} />
-        </MobileButton>
-      </div>
-      <MenuContainer show={menuOpen}>
-        <MenuBtn to="/blog">POST</MenuBtn>
-        <MenuBtn to="/project">PROJECT</MenuBtn>
-        <MenuBtn to="/about">ABOUT ME</MenuBtn>
-      </MenuContainer>
+    <HeaderContainer hide={false} shadow={shouldShadowHeader}>
+      <Container>
+        <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
+          <Title to="/">Newbie Developer</Title>
+          <MobileButton onClick={handleToggleMenu}>
+            <FontAwesomeIcon icon={faBars} />
+          </MobileButton>
+        </div>
+        <MenuContainer show={menuOpen}>
+          <MenuBtn to="/blog">POST</MenuBtn>
+          <MenuBtn to="/project">PROJECT</MenuBtn>
+          <MenuBtn to="/about">ABOUT ME</MenuBtn>
+        </MenuContainer>
+      </Container>
     </HeaderContainer>
   )
 }
 
 const HeaderContainer = styled.div`
-  display: flex;
   position: fixed;
   z-index: 2;
   width: 100%;
-  flex-direction: column;
-  justify-content: space-around;
   background-color: white;
   top: ${props => (props.hide ? "-100%" : "0")};
   box-shadow: ${props => (props.shadow ? "0 0 10px rgba(0,0,0,.3)" : "0")};
   transition: top 0.4s;
-
+`
+const Container = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
   }
 `
+
 const ClearLink = styled(Link)`
   text-decoration: none;
   box-shadow: 0;
@@ -113,7 +115,7 @@ const MenuContainer = styled.div`
   display: ${props => (props.show ? "block" : "none")};
   @media only screen and (min-width: 768px) {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex: 1;
   }
 `

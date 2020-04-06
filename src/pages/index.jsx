@@ -2,8 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
-import Button from "@material-ui/core/Button"
-
 import Bio from "../components/Bio"
 import Layout from "../layout/layout"
 import SEO from "../components/seo"
@@ -20,7 +18,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home" />
-        <FullyContainer>
+        <Container>
           <BackgroundImage>
             <img
               src="../../code-1920.jpg"
@@ -31,21 +29,24 @@ class BlogIndex extends React.Component {
           <WelcomeSection>
             <h2 style={{ color: "white" }}>{siteTitle}</h2>
             <Description>{siteDescription}</Description>
-            <Link to="/about">
-              <Button variant="contained" color="primary">
-                About Me
-              </Button>
-            </Link>
+            <Button to="/about">About Me</Button>
           </WelcomeSection>
-        </FullyContainer>
-        <RecentlyPosts recentlyPosts={recentlyPosts} />
-        <FullyContainer>
+        </Container>
+        <Container>
           <Bio id="index-aside" />
-        </FullyContainer>
+        </Container>
+        <RecentlyPosts recentlyPosts={recentlyPosts} />
       </Layout>
     )
   }
 }
+const Container = styled.div`
+  max-height: 500px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+`
+
 const WelcomeSection = styled.section`
   display: flex;
   position: absolute;
@@ -69,6 +70,17 @@ const Description = styled.h3`
 const BackgroundImage = styled.picture`
   overflow: hidden;
   width: 100%;
+`
+const Button = styled(Link)`
+  background-color: #0275d8;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 10px;
+  text-shadow: 0 0 2px white;
+  &:hover {
+    background-color: #1386e9;
+  }
 `
 
 export default BlogIndex

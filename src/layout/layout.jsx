@@ -34,10 +34,16 @@ const RootContainer = styled.div`
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  padding: 0;
 `
-const ContentContainer = styled(Container)`
+const ContentContainer = styled.div`
   background-color: white;
   padding: 0;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  margin-top: 48px;
 `
 
 export default Layout
